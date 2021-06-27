@@ -156,6 +156,7 @@
             <version>42.2.18</version>
         </dependency>
 
+
     </dependencies>
     <!--cucumberde paralel test yapmak icin gerekli olan asagidaki satirlardaki pluginler;
          pom.xml de son satirlardaki </dependencies> dan sonra yapistirilir
