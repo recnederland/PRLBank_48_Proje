@@ -1,7 +1,7 @@
 @CountryApi
 Feature: Country Api validation
   Background: api end point is set in response
-    Given user provides api end point to set the response using "https://www.gmibank.com/api/tp-countries" for countries
+    Given user provides api end point to set the response using "https://www.gmibank.com/api/tp-countries"
 
   @ReadCountry
   Scenario: test all country data
