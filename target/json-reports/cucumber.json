@@ -3,11 +3,29 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2021-06-18T19:15:20.735Z",
         "line": 3,
-        "name": "User does every step to transfer money between user\u0027s accounts",
+        "name": "api end point is set in response",
         "description": "",
-        "id": "us016-money-transfer;user-does-every-step-to-transfer-money-between-user-s-accounts",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "user provides api end point to set the response using \"https://www.gmibank.com/api/tp-countries\"",
+            "match": {},
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-06-28T20:35:15.087Z",
+        "line": 7,
+        "name": "test all country data",
+        "description": "",
+        "id": "country-api-validation;test-all-country-data",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
@@ -15,117 +33,30 @@
             "result": {
               "status": "undefined"
             },
-            "line": 4,
-            "name": "user go to \"https://gmibank-qa-environment.com/\"",
+            "line": 8,
+            "name": "User gets and manipulates all country data",
             "match": {},
             "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 5,
-            "name": "DUser navigates to sign in page",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 6,
-            "name": "DUser provide a valid username",
-            "match": {},
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 7,
-            "name": "DUser provide a valid password",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 8,
-            "name": "User click on the sign in button",
-            "match": {},
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 9,
-            "name": "DUser navigates My Accounts Page",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 10,
-            "name": "DUser gets the info about Users accounts balance",
-            "match": {},
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 11,
-            "name": "DUser navigates to Transfer Money Page",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 12,
-            "name": "DUser does the money transfer",
-            "match": {},
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 13,
-            "name": "DUser navigates My Accounts Page",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 14,
-            "name": "DUser validates that User s money transferred successfully",
-            "match": {},
-            "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@MoneyTransfer"
+            "name": "@CountryApi"
+          },
+          {
+            "name": "@ReadCountry"
           }
         ]
       }
     ],
-    "name": "US016 Money Transfer",
+    "name": "Country Api validation",
     "description": "",
-    "id": "us016-money-transfer",
+    "id": "country-api-validation",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/US_016_MoneyTransfer.feature",
+    "uri": "file:src/test/resources/features/US_21_ReadAllCountriesFromDataset.feature",
     "tags": [
       {
-        "name": "@MoneyTransfer",
+        "name": "@CountryApi",
         "type": "Tag",
         "location": {
           "line": 1,

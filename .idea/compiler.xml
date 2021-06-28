@@ -9,5 +9,6 @@
         <module name="PRLBank_48_Proje" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

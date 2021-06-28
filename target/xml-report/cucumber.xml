@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="1" tests="1" time="0.534">
-<testcase classname="US016 Money Transfer" name="User does every step to transfer money between user's accounts" time="0.103">
-<skipped><![CDATA[Given user go to "https://gmibank-qa-environment.com/"......................undefined
-And DUser navigates to sign in page.........................................undefined
-Then DUser provide a valid username.........................................undefined
-And DUser provide a valid password..........................................undefined
-Then User click on the sign in button.......................................undefined
-And DUser navigates My Accounts Page........................................undefined
-Then DUser gets the info about Users accounts balance.......................undefined
-And DUser navigates to Transfer Money Page..................................undefined
-Then DUser does the money transfer..........................................undefined
-And DUser navigates My Accounts Page........................................undefined
-And DUser validates that User s money transferred successfully..............undefined
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="1" tests="1" time="0.364">
+<testcase classname="Country Api validation" name="test all country data" time="0.097">
+<skipped><![CDATA[Given user provides api end point to set the response using "https://www.gmibank.com/api/tp-countries".undefined
+Given User gets and manipulates all country data............................undefined
 ]]></skipped>
 </testcase>
 </testsuite>

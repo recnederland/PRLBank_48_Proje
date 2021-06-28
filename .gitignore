@@ -1,0 +1,6 @@
+.idea
+target
+runners
+configuration.properties
+*.iml
+*.xml
