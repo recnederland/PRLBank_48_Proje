@@ -1,107 +1,43 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/US_016_MoneyTransfer.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/US_21_ReadAllCountriesFromDataset.feature");
 formatter.feature({
-  "name": "US016 Money Transfer",
+  "name": "Country Api validation",
   "description": "",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@MoneyTransfer"
+      "name": "@CountryApi"
     }
   ]
 });
-formatter.scenario({
-  "name": "User does every step to transfer money between user\u0027s accounts",
+formatter.background({
+  "name": "api end point is set in response",
   "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@MoneyTransfer"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.step({
-  "name": "user go to \"https://gmibank-qa-environment.com/\"",
+  "name": "user provides api end point to set the response using \"https://www.gmibank.com/api/tp-countries\"",
   "keyword": "Given "
 });
 formatter.match({});
 formatter.result({
   "status": "undefined"
 });
-formatter.step({
-  "name": "DUser navigates to sign in page",
-  "keyword": "And "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser provide a valid username",
-  "keyword": "Then "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.scenario({
+  "name": "test all country data",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@CountryApi"
+    },
+    {
+      "name": "@ReadCountry"
+    }
+  ]
 });
 formatter.step({
-  "name": "DUser provide a valid password",
-  "keyword": "And "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "User click on the sign in button",
-  "keyword": "Then "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser navigates My Accounts Page",
-  "keyword": "And "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser gets the info about Users accounts balance",
-  "keyword": "Then "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser navigates to Transfer Money Page",
-  "keyword": "And "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser does the money transfer",
-  "keyword": "Then "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser navigates My Accounts Page",
-  "keyword": "And "
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "DUser validates that User s money transferred successfully",
-  "keyword": "And "
+  "name": "User gets and manipulates all country data",
+  "keyword": "Given "
 });
 formatter.match({});
 formatter.result({
