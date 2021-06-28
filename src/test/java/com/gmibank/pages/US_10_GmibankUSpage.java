@@ -15,8 +15,10 @@ public class US_10_GmibankUSpage {
 
     @FindBy(xpath = "//span[normalize-space()='My Operations']")
     public WebElement gmi_MyOperationsSection;
+
     @FindBy(xpath = "//span[normalize-space()='Manage Customers']")
     public WebElement gmi_ManageCustomersSection;
+
     @FindBy(xpath = "//span[normalize-space()='Create a new Customer']")
     public WebElement gmi_CreateNewCustomerButton;
     @FindBy(xpath = "//input[@id='tp-customer-address']")
