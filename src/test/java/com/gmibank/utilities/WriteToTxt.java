@@ -102,10 +102,10 @@ public class WriteToTxt {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
 
             for (int i=0; i< customer.length; i++)
-                writer.append(customer[i].getFirstname()
-                        +" , "+customer[i].getLastname()+"\n"
-                        +" , "+customer[i].getSsn()+"\n"
-                        +" , "+customer[i].getEmail()+"\n");
+                writer.append(customer[i].getFirstName()
+                        +","+customer[i].getLastName()
+                        +","+customer[i].getSsn()
+                        +","+customer[i].getEmail()+"\n");
 
             writer.close();
         } catch(Exception e){

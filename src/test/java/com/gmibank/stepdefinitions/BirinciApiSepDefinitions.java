@@ -58,8 +58,8 @@ public class BirinciApiSepDefinitions {
     public void allCustomerInfoWillBeSetToCustomersWithDeserialization() throws IOException {
         ObjectMapper obj = new ObjectMapper();
         customer = obj.readValue(response.asString(), CustomerObject[].class);
-        System.out.println(customer[0].getFirstname() + "\n" + customer[0].getLastname());
-        System.out.println(customer[1].getFirstname() + "\n" + customer[1].getLastname());
+        System.out.println(customer[0].getFirstName() + "\n" + customer[0].getLastName());
+        System.out.println(customer[1].getFirstName() + "\n" + customer[1].getLastName());
 
         // NUll olan country haric countryleri alalim
         for (int i = 1; i < customer.length; i++) {
@@ -68,7 +68,7 @@ public class BirinciApiSepDefinitions {
             }
             // butun firstnameleri ornegin alalim
             for (int j = 1; j < customer.length; j++) {
-                System.out.println(customer[j].getFirstname());
+                System.out.println(customer[j].getFirstName());
 
             }
         }

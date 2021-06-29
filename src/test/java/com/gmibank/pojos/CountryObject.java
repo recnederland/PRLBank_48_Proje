@@ -8,7 +8,7 @@ public class CountryObject {
 
     private int id;
     private String name;
-    private StringObject stetes;
+    private StatesObject states;
 
 
     public int getId() {
@@ -27,12 +27,12 @@ public class CountryObject {
         this.name = name;
     }
 
-    public StringObject getStetes() {
-        return stetes;
+    public StatesObject getStates() {
+        return states;
     }
 
-    public void setStetes(StringObject stetes) {
-        this.stetes = stetes;
+    public void setStates(StatesObject states) {
+        this.states = states;
     }
 
     ;

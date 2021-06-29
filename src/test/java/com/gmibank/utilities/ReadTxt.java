@@ -117,15 +117,15 @@ public class ReadTxt {
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-            System.out.println(line);
+
             int i = 0;
             while (line != null) {
                 Customer customer = new Customer();
-                customer.setSsn(line.split(",")[0]);
+                customer.setSsn(line.split(",")[2]);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
 
-                System.out.println(i++);
+                i++;
 
                 all.add(customer.getSsn());
             }
@@ -149,7 +149,7 @@ public class ReadTxt {
                 sb.append(System.lineSeparator());
                 line = br.readLine();
 
-                System.out.println(i++);
+               i++;
 
                 all.add(customer.getSsn());
             }
