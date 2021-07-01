@@ -1,18 +1,16 @@
 package com.gmibank.utilities;
 
-import com.gmibank.pojos.Country2;
-import com.gmibank.pojos.Customer2;
-import io.cucumber.junit.CucumberOptions;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import io.cucumber.junit.CucumberOptions;
 
-public class DatabaseUtility {
-    private static Connection connection;
-    private static Statement statement;
-    private static ResultSet resultSet;
+public class DatabaseUtility2 {
+    private static Connection connection; // database irtibat
+    private static Statement statement;   //
+    private static ResultSet resultSet;   // sonuclari almak icin
     public static void createConnection() {
         String url = "jdbc:postgresql://157.230.48.97:5432/gmibank_db";
         String user = "techprodb_user";
@@ -64,9 +62,6 @@ public class DatabaseUtility {
      *         results in multiple rows and/or columns of data, only first row will
      *         be returned. The rest of the data will be ignored
      */
-    public static Object getCellValue(String query , int column , int row) {
-        return getQueryResultList(query).get(row).get(column);
-    }
     public static List<Object> getRowList(String query) {
         return getQueryResultList(query).get(0);
     }
@@ -192,61 +187,4 @@ public class DatabaseUtility {
         int rowCount = resultSet.getRow();
         return rowCount;
     }
-    public static void insertCountry(String  countryName){
-        // code yazilacak
-    }
-    public static void executeInsertion(String query) {
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            boolean done = statement.execute(query);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-    public static int getMaxCountryId (String query,String column){
-        int max = 0;
-        List<Object> allIds = getColumnData(query, column);
-        for (int i=0; i<allIds.size();i++){
-            int num = Integer.parseInt(allIds.get(i).toString().trim());
-            if(max <= num)
-                max=num;
-        }
-        return max;
-    }
-    public static Object getCellValuewithRowsAndCells(String query,int row,int cell) {
-        return getQueryResultList(query).get(row).get(cell);
-    }
-    public static List<Object> getRowListWithParam(String query,int row) {
-        return getQueryResultList(query).get(row);
-    }
-    public static void main(String[] args) {
-        String query = "Select * from tp_customer;";
-        createConnection("jdbc:postgresql://157.230.48.97:5432/gmibank_db","techprodb_user","Techpro_@126");
-//        getColumnNames(query);
-//        System.out.println(getColumnNames(query));
-//        System.out.println(getColumnData(query, getColumnNames(query).get(3)));
-//        System.out.println(getCellValuewithRowsAndCells(query,5,4));
-        List <Customer2> listOfCustomer2s = new ArrayList<>();
-        List <List< Object>> list =getQueryResultList(query);
-        for (int i=0; i<20; i++){
-            Customer2 customer2 = new Customer2();
-            Country2 country2 = new Country2();
-            System.out.println(list.get(i).get(1));
-            customer2.setFirstName(list.get(i).get(1).toString());
-            customer2.setSsn(list.get(i).get(10).toString());
-            country2.setName(list.get(i).get(8).toString());
-            //customer.setState(list.get(i).get(14).toString());
-            customer2.setZipCode(list.get(i).get(15).toString());
-            customer2.setCountry(country2);
-            listOfCustomer2s.add(customer2);
-        }
-        //  PDFGenerator.pdfGeneratorRowsAndCellsWithList("All Customers!",listOfCustomers,"AllApplicants.pdf" );
-    }
 }
-

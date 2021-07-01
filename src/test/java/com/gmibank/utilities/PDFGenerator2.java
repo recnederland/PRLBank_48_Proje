@@ -1,21 +1,24 @@
 package com.gmibank.utilities;
 
-import com.gmibank.pojos.Country2;
+import com.gmibank.pojos.CountryObject;
 import com.gmibank.pojos.Customer2;
-import com.itextpdf.text.Document;
+import com.gmibank.pojos.CustomerObject;
+import com.gmibank.pojos.Customer;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import io.cucumber.junit.CucumberOptions;
+import com.itextpdf.text.Document;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.cucumber.junit.CucumberOptions;
-public class PDFGenerator {
-    public static void pdfGenerator(String header, String fileName){
+public class PDFGenerator2 {
+    public static void pdfGenerator(String header, String fileName) {
+
         Document document = new Document();
         String pdf_path = fileName;
         String pdf_title = header;
@@ -25,31 +28,43 @@ public class PDFGenerator {
         headers.add("Country");
         headers.add("State");
         headers.add("Zip code");
-        try{
+
+        try {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_path));
+
             document.open(); // once dosyanin acilmasi lazim
+
             document.add(new Paragraph(pdf_title));  // sonra basligin yerlestirilmesi
+
             PdfPTable table = new PdfPTable(headers.size());
+
             table.setWidthPercentage(110);  // baslik ile pdf arasindaki mesafe
             table.setSpacingBefore(12);
             table.setSpacingAfter(12);
-            float [] colWidth = {2,2,2,2,2};  // sutun genisligi
+            float[] colWidth = {2, 2, 2, 2, 2};  // sutun genisligi
             table.setWidths(colWidth);
-            for (int i=0; i<headers.size();i++){
-                PdfPCell cellHeader = new PdfPCell(new Paragraph("    "+headers.get(i)));
+
+            for (int i = 0; i < headers.size(); i++) {
+                PdfPCell cellHeader = new PdfPCell(new Paragraph("    " + headers.get(i)));
                 table.addCell(cellHeader);
+
             }
+
             document.add(table); // en son asamada table documentin icine atilacak
+
             document.close();
+
             writer.close();
-        }
-        catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
-    public static void pdfGeneratorRowsAndCells(String header, String fileName){
+    public static void pdfGeneratorRowsAndCells(String header, String fileName) {
+
         Document document = new Document();
-        String pdf_path =  fileName;
+        String pdf_path = fileName;
         String pdf_title = header;
         //     String logo_path = "/Users/mk201/OneDrive/Desktop/logo.jpg";
         List<String> headers = new ArrayList<String>();
@@ -58,54 +73,74 @@ public class PDFGenerator {
         headers.add("Countries");
         headers.add("States");
         headers.add("Zip codes");
-        List <String> rowData = new ArrayList<String>();
+
+        List<String> rowData = new ArrayList<String>();
         rowData.add("Ibrahim");
         rowData.add("2020202202");
         rowData.add("USA");
         rowData.add("North Carolina");
         rowData.add("22180");
         //   rowData.add("final");
-        try{
+
+        try {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_path));
+
             document.open();
-            document.add(new Paragraph("                                     "+pdf_title));
+
+            document.add(new Paragraph("                                     " + pdf_title));
+
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(110);
             table.setSpacingBefore(25);
             table.setSpacingAfter(25);
-            float [] colWidth = {3,3,3,3,3};
+            float[] colWidth = {3, 3, 3, 3, 3};
             table.setWidths(colWidth);
+
+
             PdfPCell cell1 = new PdfPCell(new Phrase(headers.get(0)));
             table.addCell(cell1);
+
             PdfPCell cell2 = new PdfPCell(new Phrase(headers.get(1)));
             table.addCell(cell2);
+
             PdfPCell cell3 = new PdfPCell(new Phrase(headers.get(2)));
             table.addCell(cell3);
+
             PdfPCell cell4 = new PdfPCell(new Phrase(headers.get(3)));
             table.addCell(cell4);
+
             PdfPCell cell5 = new PdfPCell(new Phrase(headers.get(4)));
             table.addCell(cell5);
+
             table.setHeaderRows(2);
+
             table.addCell(rowData.get(0));
             table.addCell(rowData.get(1));
             table.addCell(rowData.get(2));
             table.addCell(rowData.get(3));
             table.addCell(rowData.get(4));
+
             table.addCell("Ahmet");
             table.addCell("4278382734");
             table.addCell("USA");
             table.addCell("Virginia");
             table.addCell("55123");
+
             document.add(table);
+
             //    document.add(Image.getInstance(logo_path));
             document.close();
+
             writer.close();
-        }
-        catch(Exception e){
+
+       } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
-    public static void pdfGeneratorRowsAndCellsWithList(String header, List <Customer2> list, String fileName){
+
+    public static void pdfGeneratorRowsAndCellsWithList(String header, List<CustomerObject> list, String fileName) {
+
         Document document = new Document();
         String pdf_path = fileName;
         String pdf_title = header;
@@ -116,91 +151,128 @@ public class PDFGenerator {
         headers.add("Countries");
         headers.add("States");
         headers.add("Zip codes");
-        try{
+
+        try {
+
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_path));
+
             document.open();
-            document.add(new Paragraph("                                            "+pdf_title));
+
+            document.add(new Paragraph("                                            " + pdf_title));
+
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(110);
             table.setSpacingBefore(25);
             table.setSpacingAfter(25);
-            float [] colWidth = {2,2,2,2,2};
+            float[] colWidth = {2, 2, 2, 2, 2};
             table.setWidths(colWidth);
-            for(int i=0;i<headers.size();i++) {
+
+            for (int i = 0; i < headers.size(); i++) {
+
                 PdfPCell cell1 = new PdfPCell(new Phrase(headers.get(i)));
                 table.addCell(cell1);
             }
-            table.setHeaderRows(list.size());
-            for(int i=0;i<list.size();i++ ) {
-                table.addCell(list.get(i).getFirstName());
-                table.addCell(list.get(i).getSsn());
-                table.addCell(list.get(i).getCountry().getName());
-                //table.addCell(list.get(i).getState());
+
+            table.setHeaderRows(10);
+
+            for (int i = 0; i < 10; i++) {
+
+                //table.addCell(list.get(i).getFirstName());
+                //table.addCell(list.get(i).getLastName());
+                table.addCell(list.get(i).getState());
                 table.addCell(list.get(i).getZipCode());
+                table.addCell(list.get(i).getSsn());
+
             }
             document.add(table);
+
             //       document.add(Image.getInstance(logo_path));
             document.close();
+
             writer.close();
-        }
-        catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
     public static void main(String[] args) {
+
         //pdfGenerator("               pdf_ders","deneme.pdf");
         //  pdfGeneratorRowsAndCells("pdf2","pdf_ders2.pdf");
-        List <Customer2> list = new ArrayList<>();
-        Country2 country2 = new Country2();
-        country2.setName("USA");
-        Customer2 customer2 = new Customer2();
-        customer2.setFirstName("Emine");
-        //customer.setState("MA");
-        customer2.setSsn("202020202");
-        customer2.setZipCode("02120");
-        customer2.setCountry(country2);
-        list.add(customer2);
+
+        List<CustomerObject> list = new ArrayList<>();
+        CountryObject country = new CountryObject();
+        country.setName("USA");
+        CustomerObject customer = new CustomerObject();
+        //customer.setFirstName("Emine");
+        customer.setState("MA");
+        customer.setSsn("202020202");
+        customer.setZipCode("02120");
+        customer.setCountry(country);
+
+        list.add(customer);
+
         String header = "Information";
-        String fileName ="some.pdf";
-        pdfGeneratorRowsAndCellsWithList(header,list,fileName);
+        String fileName = "some.pdf";
+
+        pdfGeneratorRowsAndCellsWithList(header, list, fileName);
+
     }
-    public static void pdfGeneratorRowsAndCellsWithListFirstToFive(String header, List <Customer2> list, String fileName){
+
+    public static void pdfGeneratorRowsAndCellsWithListFirstToFive(String header, List<Customer2> list, String fileName) {
+
         Document document = new Document();
         String pdf_path = fileName;
         String pdf_title = header;
+
         List<String> headers = new ArrayList<String>();
         headers.add("Firstname");
         headers.add("LastName");
-        headers.add("Mobile Number");
+        headers.add("Email");
         headers.add("City");
         headers.add("SSN Number");
-        try{
+
+        try {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(pdf_path));
+
             document.open();
-            document.add(new Paragraph("                                     "+pdf_title));
+
+            document.add(new Paragraph("                                     " + pdf_title));
+
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(110);
             table.setSpacingBefore(25);
             table.setSpacingAfter(25);
-            float [] colWidth = {2,2,2,2,2};
+            float[] colWidth = {2, 2, 2, 2, 2};
             table.setWidths(colWidth);
-            for(int i=0;i<headers.size();i++) {
+
+            for (int i = 0; i < headers.size(); i++) {
+
                 PdfPCell cell1 = new PdfPCell(new Phrase(headers.get(i)));
                 table.addCell(cell1);
+
             }
+
             table.setHeaderRows(list.size());
-            for(int i=0;i<list.size();i++ ) {
-                table.addCell(list.get(i).getFirstName());
-                table.addCell(list.get(i).getLastName());
-                table.addCell(list.get(i).getMobilePhoneNumber());
+
+            for (int i = 0; i < list.size(); i++) {
+
+                //table.addCell(list.get(i).getFirstName());
+                //table.addCell(list.get(i).getLastName());
+                table.addCell(list.get(i).getEmail());
                 table.addCell(list.get(i).getCity());
                 table.addCell(list.get(i).getSsn());
+
             }
             document.add(table);
+
             document.close();
+
             writer.close();
-        }
-        catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
